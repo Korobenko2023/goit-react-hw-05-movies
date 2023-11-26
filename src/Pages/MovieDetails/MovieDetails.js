@@ -2,9 +2,10 @@ import { Loader } from "components/Loader/Loader";
 import { fetchMovieDetails } from "components/Services/Api";
 import { Suspense, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import { MovieCard } from "components/MovieCard/MovieCard";
+import { LinkBack } from "./MovieDetails.styled";
 
 export default function MovieDetails() {
     const [movieDescription, setMovieDescription] = useState({});
@@ -23,9 +24,9 @@ export default function MovieDetails() {
               setIsLoading(true);
 
             try {
-                const { results } = await fetchMovieDetails(movieId);
+                const movieById = await fetchMovieDetails(movieId);
                
-                setMovieDescription(results);
+                setMovieDescription(movieById);
             } catch (error) {
                 toast.error('Oops! Something went wrong. Please try again later.', error);
             } finally {
@@ -36,13 +37,12 @@ export default function MovieDetails() {
         detailsFilm();
     
     }, [movieId]);
-    console.log(movieDescription)
 
     return (
         <div>
-            <Link to={backLink.current}><GoArrowLeft />Go back</Link>           
+            <LinkBack to={backLink.current}><GoArrowLeft />Go back</LinkBack>           
             <MovieCard description={movieDescription} />
-            {isLoading && <Loader />}
+             {isLoading && <Loader />}           
             <Suspense fallback={<Loader />}>
                 <Outlet />
             </Suspense>          

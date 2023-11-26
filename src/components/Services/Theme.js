@@ -19,17 +19,8 @@ export const theme = {
         Gray: "#808080",
         Beige: "#F5F5DC",
         MediumBlue: "#0000CD",
+        Yellow: "#FFFF00",
          
-    },
-
-    background: {
-        white: "#ffff",
-        blue: "#4cacbf",
-        lightBlue: "#97d3e6",
-        lightBlueSecond: "#97deee",
-        PowderBlue: "#B0E0E6",
-        GreenYellow: "#ADFF2F",
-        Tomato: "#FF6347",
     },
 
     radii: {

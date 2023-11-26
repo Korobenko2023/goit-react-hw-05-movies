@@ -14,12 +14,12 @@ export default function Home() {
 
             setIsLoading(true);
             try {
-                const { results } = await fetchTrendingMovies();
-                if (results.length === 0) {
+                const moviesTrening = await fetchTrendingMovies();
+                if (moviesTrening.length === 0) {
                     toast.error('Oops! Something went wrong. Please try again later.');
                     return;
                 }
-                setMovies([...results]);
+                setMovies(moviesTrening);
             } catch (error) {
                 toast.error('Oops! Something went wrong. Please try again later.', error);
             } finally {

@@ -20,12 +20,12 @@ export default function Movies() {
               setIsLoading(true);
 
             try {
-                const { results } = await fetchMovies(currentQuery);
-                if (results.length === 0) {
+                const moviesQuery = await fetchMovies(currentQuery);
+                if (moviesQuery.length === 0) {
                     toast.error('Sorry, there are no movies matching your search query. Please try again..');
                     return;
                 }
-                setMovies(results);
+                setMovies(moviesQuery);
             } catch (error) {
                 toast.error('Oops! Something went wrong. Please try again later.', error);
             } finally {

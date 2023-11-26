@@ -8,8 +8,7 @@ export const fetchTrendingMovies = async () => {
             language: 'en-US',
         };
         const { data } = await axios.get(`/trending/all/day`, { params });
-        console.log(data)
-     return data;
+    return data.results;
     } catch (error) {
         throw error;
     }   
@@ -25,7 +24,7 @@ export const fetchMovies = async (query) => {
             page: 1,
         };
         const { data } = await axios.get(`/search/movie`, { params });
-     return data;
+   return data.results;
     } catch (error) {
         throw error;
     }   
@@ -38,7 +37,7 @@ export const fetchMovieDetails = async (movieId) => {
             language: 'en-US',
         };
         const { data } = await axios.get(`/movie/${movieId}`, { params });
-     return data;
+        return data;
     } catch (error) {
         throw error;
     }
@@ -51,7 +50,7 @@ export const fetchMovieCast = async (movieId) => {
             language: 'en-US',
         };
         const { data } = await axios.get(`/movie/${movieId}/credits`, { params });
-     return data;
+      return data.cast;
     } catch (error) {
         throw error;
     }   
@@ -65,7 +64,7 @@ export const fetchMovieReviews = async (movieId) => {
             page: 1,
         };
         const { data } = await axios.get(`/movie/${movieId}/reviews`, { params });
-     return data;
+     return data.results;
     } catch (error) {
         throw error;
     }   
