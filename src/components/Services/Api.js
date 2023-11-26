@@ -8,67 +8,63 @@ export const fetchTrendingMovies = async () => {
             language: 'en-US',
         };
         const { data } = await axios.get(`/trending/all/day`, { params });
-        console.log(data);
+        console.log(data)
      return data;
     } catch (error) {
         throw error;
     }   
 }
 
-export const fetchMovies = async (keyword) => {   
+export const fetchMovies = async (query) => {   
     try {
         const params = {
             api_key: API_KEY,
-            query: keyword,
+            query: query,
             include_adult: false,
             language: 'en-US',
             page: 1,
         };
         const { data } = await axios.get(`/search/movie`, { params });
-        console.log(data)
      return data;
     } catch (error) {
         throw error;
     }   
 }
 
-export const fetchMovieDetails = async (movie_id) => {   
+export const fetchMovieDetails = async (movieId) => {
+    try {
+        const params = {
+            api_key: API_KEY,
+            language: 'en-US',
+        };
+        const { data } = await axios.get(`/movie/${movieId}`, { params });
+     return data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const fetchMovieCast = async (movieId) => {   
     try {
         const params = {
             api_key: API_KEY,           
             language: 'en-US',
         };
-        const { data } = await axios.get(`/movie/${movie_id}`, { params });
-        console.log(data)
+        const { data } = await axios.get(`/movie/${movieId}/credits`, { params });
      return data;
     } catch (error) {
         throw error;
     }   
 }
 
-export const fetchMovieCredits = async (movie_id) => {   
-    try {
-        const params = {
-            api_key: API_KEY,           
-            language: 'en-US',
-        };
-        const { data } = await axios.get(`/movie/${movie_id}/credits`, { params });
-        console.log(data)
-     return data;
-    } catch (error) {
-        throw error;
-    }   
-}
-
-export const fetchMovieReviews = async (movie_id) => {   
+export const fetchMovieReviews = async (movieId) => {   
     try {
         const params = {
             api_key: API_KEY,           
             language: 'en-US',
             page: 1,
         };
-        const { data } = await axios.get(`/movie/${movie_id}/reviews`, { params });
-        console.log(data)
+        const { data } = await axios.get(`/movie/${movieId}/reviews`, { params });
      return data;
     } catch (error) {
         throw error;
