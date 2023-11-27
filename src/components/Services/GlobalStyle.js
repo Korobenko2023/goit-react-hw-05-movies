@@ -18,7 +18,7 @@ body {
   letter-spacing: 0.02em;
   line-height: 1.3;
   background-color: ${p => p.theme.colors.Beige};
-  font-size: 20px;
+  font-size: 16px;
 }
 
 h1,
@@ -37,7 +37,7 @@ ol {
   padding: 0;  
   list-style: none;
 }
-   
+
 img {
   display: block;
   max-width: 100%;

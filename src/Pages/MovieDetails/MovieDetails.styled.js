@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const LinkBack = styled(Link)`
+export const LinkBack = styled(NavLink)`
+  color: ${p => p.theme.colors.MediumBlue}; 
   margin-bottom: ${p => p.theme.spasing(4)};
   display: flex;
   gap: ${p => p.theme.spasing(1)};
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.MediumBlue}; 
+    color: ${p => p.theme.colors.Orange}; 
   }
 `;

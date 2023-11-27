@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MovieContainer = styled.div`
@@ -13,4 +14,14 @@ export const Descriprion = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.spasing(2)};
+`;
+
+export const LinkCard = styled(NavLink)`
+  color: ${p => p.theme.colors.MediumBlue}; 
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus,
+  &.active {
+    color: ${p => p.theme.colors.Orange}; 
+  }
 `;

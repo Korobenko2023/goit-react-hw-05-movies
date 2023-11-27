@@ -10,7 +10,7 @@ export default function Movies() {
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
-    const currentQuery = searchParams.get('query');
+    const currentQuery = searchParams.get('query') ?? '';
 
     useEffect(() => {       
         if (!currentQuery) return;

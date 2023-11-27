@@ -20,6 +20,7 @@ export const theme = {
         Beige: "#F5F5DC",
         MediumBlue: "#0000CD",
         Yellow: "#FFFF00",
+        Orange: "#FFA500",
          
     },
 

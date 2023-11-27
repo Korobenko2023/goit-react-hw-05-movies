@@ -23,6 +23,6 @@ export const CastLi = styled.li`
     border-radius: ${p => p.theme.radii.md};
   }
   span {
-    color: ${p => p.theme.colors.Yellow}; 
+    color: ${p => p.theme.colors.MediumBlue}; 
   }
 `;

@@ -1,7 +1,7 @@
 import { Loader } from "components/Loader/Loader";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { useEffect, useState } from "react";
-import { HomeDiv, HomeTitle } from "./Home.styled";
+import { HomeDiv } from "./Home.styled";
 import toast from "react-hot-toast";
 import { fetchTrendingMovies } from "components/Services/Api";
 
@@ -33,7 +33,7 @@ export default function Home() {
 
     return (
     <HomeDiv>
-      <HomeTitle>Trending today</HomeTitle>
+      <h2>Trending today</h2>
       {movies.length > 0 && <MoviesList movies={movies} />}
       {isLoading && <Loader/>}
     </HomeDiv>

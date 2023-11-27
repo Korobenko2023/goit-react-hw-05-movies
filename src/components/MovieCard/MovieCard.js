@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Descriprion, MovieContainer } from "./MovieCard.styled";
+import { Descriprion, LinkCard, MovieContainer } from "./MovieCard.styled";
 
 
 export const MovieCard = ({ description: { title,
@@ -17,7 +16,7 @@ export const MovieCard = ({ description: { title,
     <>
        <MovieContainer>
             <img src={poster_path ? imgStart + `${poster_path}` : defaultImg}
-               width={250}
+               width={200}
                alt={title} />  
             <Descriprion>    
                <h1>{title}</h1>
@@ -37,10 +36,10 @@ export const MovieCard = ({ description: { title,
                <h2>Additional information</h2>
                  <ul>
                    <li>
-                     <Link to="cast">Cast</Link>
+                     <LinkCard to="cast">Cast</LinkCard>
                    </li>                   
                    <li>
-                      <Link to="reviews">Reviews</Link>
+                      <LinkCard to="reviews">Reviews</LinkCard>
                    </li>
                  </ul>
         </div>
