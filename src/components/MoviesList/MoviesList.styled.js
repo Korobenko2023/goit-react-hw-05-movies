@@ -11,6 +11,7 @@ export const MoviesUl = styled.ul`
 
 export const MoviesLi = styled.li`
   max-width: 160px;
+  height: auto;
 `;
 
 export const MoviesLink = styled(NavLink)` 
@@ -21,6 +22,10 @@ export const MoviesLink = styled(NavLink)`
    &:focus {
     color: ${p => p.theme.colors.MediumBlue};     
   }
+`;
+
+export const MoviesImg = styled.img`
+height: 240px;
 `;
 
 export const Title = styled.p`  
