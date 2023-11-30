@@ -1,12 +1,11 @@
 import { Descriprion, LinkCard, MovieContainer } from "./MovieCard.styled";
 
-
 export const MovieCard = ({ description: { title,
   vote_average,
   genres,
   overview,
   poster_path,
-   runtime } }) => {
+  runtime } }) => {
 
   const imgStart = `https://image.tmdb.org/t/p/original/`;
   const defaultImg =

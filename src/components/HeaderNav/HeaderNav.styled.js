@@ -22,6 +22,6 @@ export const HeaderLink = styled(NavLink)`
   &:hover,
   &:focus,
   &.active {
-    color: ${p => p.theme.colors.Orange}; 
+    color: ${p => p.theme.colors.Orange};     
   }
 `;

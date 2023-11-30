@@ -8,7 +8,7 @@ import { MovieCard } from "components/MovieCard/MovieCard";
 import { LinkBack } from "./MovieDetails.styled";
 
 export default function MovieDetails() {
-    const [movieDescription, setMovieDescription] = useState({});
+    const [movieDescription, setMovieDescription] = useState(null);
     const {movieId} = useParams();
     const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
@@ -40,12 +40,16 @@ export default function MovieDetails() {
 
     return (
         <div>
-            <LinkBack to={backLink.current}><GoArrowLeft />Go back</LinkBack>           
-            <MovieCard description={movieDescription} />
-             {isLoading && <Loader />}           
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>          
+            {isLoading && <Loader />}            
+            {movieDescription && !isLoading && (
+                <>
+                  <LinkBack to={backLink.current}><GoArrowLeft />Go back</LinkBack>  
+                  <MovieCard description={movieDescription} />                       
+                  <Suspense fallback={<Loader />}>
+                     <Outlet />
+                  </Suspense>  
+                </>        
+            )}                   
         </div>);
 };
 
