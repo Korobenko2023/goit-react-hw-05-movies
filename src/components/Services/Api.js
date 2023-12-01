@@ -7,7 +7,7 @@ export const fetchTrendingMovies = async () => {
             api_key: API_KEY,
             language: 'en-US',
         };
-        const { data } = await axios.get(`/trending/all/day`, { params });
+        const { data } = await axios.get(`/trending/movie/day`, { params });
     return data.results;
     } catch (error) {
         throw error;
