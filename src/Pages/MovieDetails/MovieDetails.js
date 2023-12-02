@@ -11,24 +11,27 @@ export default function MovieDetails() {
     const [movieDescription, setMovieDescription] = useState(null);
     const {movieId} = useParams();
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const location = useLocation();
     const backLink = useRef(location.state?.from ?? '/');
 
-    useEffect(() => {
+    useEffect(() => {      
+        
          if (!movieId) {
             return;
-          }
+        }
+        
+        setIsLoading(true);
+        setError(false);
 
-        const detailsFilm = async () => {
-
-              setIsLoading(true);
+        const detailsFilm = async () => {    
 
             try {
                 const movieById = await fetchMovieDetails(movieId);
                
                 setMovieDescription(movieById);
             } catch (error) {
-                toast.error('Oops! Something went wrong. Please try again later.', error);
+                 setError(true);    
             } finally {
                 setIsLoading(false);
             }
@@ -40,10 +43,11 @@ export default function MovieDetails() {
 
     return (
         <div>
-            {isLoading && <Loader />}            
-            {movieDescription && !isLoading && (
-                <>
-                  <LinkBack to={backLink.current}><GoArrowLeft />Go back</LinkBack>  
+            <LinkBack to={backLink.current}><GoArrowLeft />Go back</LinkBack>
+            {isLoading && <Loader />} 
+            {error && (toast.error('Oops! Something went wrong. Please try again later'))}
+            {movieDescription && (
+                <>                   
                   <MovieCard description={movieDescription} />                       
                   <Suspense fallback={<Loader />}>
                      <Outlet />

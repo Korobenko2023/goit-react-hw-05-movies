@@ -10,24 +10,27 @@ export default function Movies() {
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const currentQuery = searchParams.get('query') ?? '';
 
     useEffect(() => {       
+        
         if (!currentQuery) return;
 
-        const searchFilms = async () => {
-
-              setIsLoading(true);
+        setIsLoading(true);
+        setError(false);
+        
+        const searchFilms = async () => {           
 
             try {
                 const moviesQuery = await fetchMovies(currentQuery);
                 if (moviesQuery.length === 0) {
-                    toast.error('Sorry, there are no movies matching your search query. Please try again..');
+                    toast.error('Sorry, there are no movies matching your search query. Please try again.');
                     return;
                 }
                 setMovies(moviesQuery);
             } catch (error) {
-                toast.error('Oops! Something went wrong. Please try again later.', error);
+                setError(true);                
             } finally {
                 setIsLoading(false);
             }
@@ -40,9 +43,9 @@ export default function Movies() {
  return (
     <>
          <Searchbar setSearchParams={setSearchParams} />
-         {isLoading && <Loader/>}
-         <MoviesList movies={movies} />
+         {isLoading && <Loader />}
+         {error && (toast.error('Oops! Something went wrong. Please try again later'))}
+         {movies.length > 0 && <MoviesList movies={movies} />}
     </>
     )
-
 };
