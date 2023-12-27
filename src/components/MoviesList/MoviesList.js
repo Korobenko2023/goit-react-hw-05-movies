@@ -1,10 +1,14 @@
 import { useLocation } from "react-router-dom";
-import { MoviesImg, MoviesLi, MoviesLink, MoviesUl, Title } from "./MoviesList.styled";
+import { FallingStarsWrapper, MoviesImg, MoviesLi, MoviesLink, MoviesUl, Title } from "./MoviesList.styled";
+import { FallingStars } from "components/FallingStars/FallingStars";
 
 export const MoviesList = ({ movies }) => {
     const location = useLocation();
     return (
         <MoviesUl>
+            <FallingStarsWrapper>
+               <FallingStars />
+            </FallingStarsWrapper>            
             {movies.map(({ id, name, title, poster_path }) => (
                 <MoviesLi key={id}>
                     <MoviesLink to={`/movies/${id}`} state={{ from: location }}> 

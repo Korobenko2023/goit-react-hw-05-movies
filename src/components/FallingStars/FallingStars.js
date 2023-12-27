@@ -3,6 +3,9 @@ import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
 
 export const FallingStars = () => {
+
+   const particleColors = ["#FFA500", "#0000CD"];
+
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
@@ -11,29 +14,64 @@ export const FallingStars = () => {
     return null;
   }, []);
 
+  const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * particleColors.length);
+    return particleColors[randomIndex];
+  };
+
   return (
-      <Particles
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
       options={{
         particles: {
-          color: { value: "#FFA500" }, 
-          number: { value: 20 },
-          opacity: { min: 0.3, max: 1 },
-          shape: {
-            type: 'star', 
+          number: {
+        value: 100, // Кількість частинок (зірок)
+        density: {
+          enable: true,
+          value_area: 800,
+        },
           },
-          size: { value: { min: 1, max: 4 } },
+      shape: {
+        type: 'star', // Форма частинок
+        stroke: {
+          width: 2,
+           color: getRandomColor(),        
+        },
+        polygon: {
+          nb_sides: 5, // Кількість сторін зірки
+        },
+      },
+      size: {
+        value: 4, // Розмір частинок (зірок)
+        random: true,
+        anim: {
+          enable: true,
+          speed: 4,
+          size_min: 0.1,
+          sync: false,
+        },
+          },
+          opacity: {
+            value: 0.8, // Прозорість частинок (зірок)
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
           move: {
             direction: 'top', 
             enable: true,
             speed: { min: 1, max: 1 },
-            straight: false,
+            straight: false, 
             outMode: 'out', 
           },
         },
-      }}
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
+      }}      
     />
   );
 };

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MoviesUl = styled.ul`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: ${p => p.theme.spasing(5)};
@@ -9,7 +10,17 @@ export const MoviesUl = styled.ul`
   margin-top: ${p => p.theme.spasing(5)};
 `;
 
+export const FallingStarsWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+`;
+
 export const MoviesLi = styled.li`
+  position: relative;
   max-width: 160px;
   height: auto;
 `;
@@ -34,3 +45,4 @@ export const Title = styled.p`
   font-weight: 500;
   text-align: center;
 `;
+

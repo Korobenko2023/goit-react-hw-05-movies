@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AppLayout } from "./AppLayout";
 import { lazy } from "react";
-import { FallingStars } from "./FallingStars/FallingStars";
 
 const Home = lazy(() => import("Pages/Home/Home"));
 const Movies = lazy(() => import("Pages/Movies/Movies"));
@@ -12,20 +11,15 @@ const Reviews = lazy(() => import("./Reviews/Reviews"));
 export const App = () => {
   return (
       <Routes>
-      <Route path="/" element={
-        <>
-        <AppLayout />
-        <FallingStars />
-        </>
-      }>
+      <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<MovieDetails />}> 
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>      
     </Routes>
   );
 };
