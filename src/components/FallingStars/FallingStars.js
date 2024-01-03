@@ -64,7 +64,7 @@ export const FallingStars = () => {
             },
           },
           move: {
-            direction: 'top', 
+            direction: 'bottom', 
             enable: true,
             speed: { min: 1, max: 1 },
             straight: false, 
