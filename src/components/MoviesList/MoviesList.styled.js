@@ -4,10 +4,9 @@ import styled from 'styled-components';
 export const MoviesUl = styled.ul`
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: ${p => p.theme.spasing(5)};
-  margin-left: ${p => p.theme.spasing(5)};
-  margin-top: ${p => p.theme.spasing(5)};
+  flex-wrap: wrap;  
+  gap: ${p => p.theme.spasing(4)};
+  margin: auto;
 `;
 
 export const FallingStarsWrapper = styled.div`
@@ -21,8 +20,7 @@ export const FallingStarsWrapper = styled.div`
 
 export const MoviesLi = styled.li`
   position: relative;
-  max-width: 160px;
-  height: auto;
+  flex-basis: calc((100% - 64px) / 5); 
 `;
 
 export const MoviesLink = styled(NavLink)` 
@@ -31,12 +29,14 @@ export const MoviesLink = styled(NavLink)`
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
    &:hover,
    &:focus {
-    color: ${p => p.theme.colors.MediumBlue};     
+    color: ${p => p.theme.colors.Orange};     
   }
 `;
 
 export const MoviesImg = styled.img`
-height: 240px;
+ background-size: cover;
+ width: 100%; 
+ border-radius: ${p => p.theme.spasing(3)};
 `;
 
 export const Title = styled.p`  

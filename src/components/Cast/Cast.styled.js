@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+export const CastDiv = styled.div`
+   max-width: 1300px;
+   margin-left: auto;
+   margin-right: auto;
+`;
+
 export const CastUl = styled.ul`
+  margin: auto;
   margin-top:  ${p => p.theme.spasing(1)};
   display: flex;
   flex-wrap: wrap;
@@ -8,10 +15,10 @@ export const CastUl = styled.ul`
 `;
 
 export const CastLi = styled.li`
+ flex-basis: calc((100% - 80px) / 6);
   min-width: 190px;
   font-size: 14px;
   padding: ${p => p.theme.spasing(2)};
-  max-width: min-content;
   background-color: ${p => p.theme.colors.violet}; 
   border-radius: ${p => p.theme.radii.md};
   :not(:last-child) {
@@ -19,10 +26,10 @@ export const CastLi = styled.li`
   }
 
   img {
-    max-width: 190px;
+    max-width: 100%;
     border-radius: ${p => p.theme.radii.md};
   }
   span {
-    color: ${p => p.theme.colors.MediumBlue}; 
+    color: ${p => p.theme.colors.Orange}; 
   }
 `;

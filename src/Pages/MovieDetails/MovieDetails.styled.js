@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const LinkBack = styled(NavLink)`
   color: ${p => p.theme.colors.MediumBlue}; 
-  margin-bottom: ${p => p.theme.spasing(4)};
+  margin-bottom: ${p => p.theme.spasing(2)};
   display: flex;
   gap: ${p => p.theme.spasing(1)};
   align-items: center;

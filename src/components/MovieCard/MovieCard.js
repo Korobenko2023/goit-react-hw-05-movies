@@ -1,4 +1,4 @@
-import { Descriprion, LinkCard, MovieContainer } from "./MovieCard.styled";
+import { Additional, Descriprion, LinkCard, MovieContainer } from "./MovieCard.styled";
 
 export const MovieCard = ({ description: { title,
   vote_average,
@@ -31,7 +31,7 @@ export const MovieCard = ({ description: { title,
                </ul>
              </Descriprion>            
         </MovieContainer>
-        <div>             
+        <Additional>             
                <h2>Additional information</h2>
                  <ul>
                    <li>
@@ -41,7 +41,7 @@ export const MovieCard = ({ description: { title,
                       <LinkCard to="reviews">Reviews</LinkCard>
                    </li>
                  </ul>
-        </div>
+        </Additional>
     </>       
   )
 };

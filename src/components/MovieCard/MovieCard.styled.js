@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const MovieContainer = styled.div`
   max-width: 95%;
   padding-bottom: ${p => p.theme.spasing(4)};
-  margin-bottom: ${p => p.theme.spasing(4)};
+  margin-bottom: ${p => p.theme.spasing(1)};
   display: flex;
   gap: ${p => p.theme.spasing(4)};
   border-bottom: 1px solid ${p => p.theme.colors.MediumBlue}; 
@@ -15,6 +15,11 @@ export const Descriprion = styled.div`
   flex-direction: column;
   gap: ${p => p.theme.spasing(2)};
 `;
+
+export const Additional = styled.div`
+   max-width: 1200px;
+`;
+
 
 export const LinkCard = styled(NavLink)`
   color: ${p => p.theme.colors.MediumBlue}; 

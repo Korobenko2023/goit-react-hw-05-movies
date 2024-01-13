@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-margin: auto;
-padding: ${p => p.theme.spasing(4)};
-margin-bottom: ${p => p.theme.spasing(4)};
-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
-    0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+max-width: 1300px;
+margin: 0 auto;
+margin-bottom: ${p => p.theme.spasing(3)};
+padding: ${p => p.theme.spasing(5)};
+background-color: ${p => p.theme.colors.DarkSlateBlue};
+border-radius: ${p => p.theme.spasing(2)};
 `;
 
 export const HeaderNavUl = styled.ul`

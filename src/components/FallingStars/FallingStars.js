@@ -4,7 +4,7 @@ import { loadSlim } from "tsparticles-slim";
 
 export const FallingStars = () => {
 
-   const particleColors = ["#FFA500", "#0000CD"];
+   const particleColors = ["#FFA500", "#00fffc"];
 
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);

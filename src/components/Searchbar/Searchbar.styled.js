@@ -5,6 +5,7 @@ export const SearchForm = styled.form`
   max-width: 600px;
   gap: ${p => p.theme.spasing(1)};
   overflow: hidden;
+  margin-bottom: ${p => p.theme.spasing(7)};
 `;
   
 export const SearchInput = styled.input`
@@ -36,9 +37,11 @@ export const SearchButton = styled.button`
   border: 1px solid black;
   border-radius: ${p => p.theme.radii.sm};
   outline: none;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     border-color: ${p => p.theme.colors.MediumBlue}; 
+    background-color: ${p => p.theme.colors.MediumSlateBlue};
   } 
 `;

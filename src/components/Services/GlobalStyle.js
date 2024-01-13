@@ -17,8 +17,15 @@ body {
   color: ${p => p.theme.colors.black};
   letter-spacing: 0.02em;
   line-height: 1.3;
-  background-color: ${p => p.theme.colors.Beige};
+  background-color: ${p => p.theme.colors.MediumSlateBlue};
   font-size: 16px;
+}
+
+main {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px 20px;
 }
 
 h1,
@@ -41,7 +48,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 380px;
   object-fit: cover;
 }
 
